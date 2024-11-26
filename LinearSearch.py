@@ -6,7 +6,7 @@ def LinearSearch(list,Target):
 
 def validate(result):
     if result is not None:
-        print("The Target is : ",result)
+        print("The Target index is : ",result)
     else:
         print("The target not found",result) 
 
