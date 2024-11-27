@@ -32,6 +32,36 @@ class LinkedList:
         new_node.next_node = self.head
         self.head = new_node
 
+    def insertat(self,data,pos):
+        """ Inserting data at any given position"""
+        new_node = Node(data)
+
+        if pos == 0:
+            new_node.next_node = self.head
+            self.head = new_node
+            return
+        
+        current = self.head
+        current_pos = 0
+
+        while current and current_pos < pos - 1:
+            current = current.next_node
+            current_pos += 1 
+        
+        if not current:  # If the position is out of bounds
+            print(f"Position {position} is out of bounds.")
+            return
+        
+        new_node.next_node = current.next_node
+        current.next_node = new_node
+        
+    def remove(self,key):
+        s = self.search(key)
+        print(s)
+        
+
+
+
     def search(self,key):
         """ Seach for the first node containing data that matches the key """
         current = self.head
@@ -57,7 +87,9 @@ if __name__ == "__main__":
     l.add(1)
     l.add(5)
     l.add(3)
+    l.insertat(10,2)
     print(l.size())
     print(l.display())
-    print(l.search())
+    print(l.search(50))
+    print(l.remove(3))
 
